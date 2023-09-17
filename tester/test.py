@@ -1,11 +1,11 @@
 from multiprocessing import Pool
 from requests import get,post
 
-URL = 'http://localhost:3000'
+URL = 'http://nodejs-autoscale-1095809690.ap-southeast-1.elb.amazonaws.com:3000'
 
 def send_request(val):
     while True:
-        res = post(f'{URL}')
+        res = get(f'{URL}')
         data = res.json()
         print('Sending request')
         print(data)
