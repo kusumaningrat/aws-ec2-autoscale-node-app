@@ -15,9 +15,9 @@ app.get('/', (req, res) => {
     const ec2_hostname = os.hostname();
     res.json({
         'message': 'Success',
+        'instance_name': `${ec2_hostname}`,
         'data': data
     });
-    res.send(`<h1>This is Instance: ${ec2_hostname}</h1>`)
 });
 
 app.listen(3000, () => {

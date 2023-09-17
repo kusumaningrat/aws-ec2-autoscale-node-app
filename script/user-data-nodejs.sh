@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Configure Hostname"
+sudo hostnamectl set-hostname web1
+
 echo "Installing Node.js"
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
@@ -22,6 +25,6 @@ sudo npm install pm2@latest -g
 sudo pm2 start index.js
 
 echo "Setup proxy"
-sudo apt install nginx
+sudo apt install nginx -y
 sudo systemctl enable nginx
 sudo systemctl start nginx
